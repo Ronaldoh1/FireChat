@@ -13,6 +13,8 @@
 		F230D98A1E03C1B1004EF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F230D9891E03C1B1004EF55C /* Assets.xcassets */; };
 		F230D98D1E03C1B1004EF55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */; };
 		F230D9981E03C1B1004EF55C /* FireChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9971E03C1B1004EF55C /* FireChatTests.swift */; };
+		F230D9A41E03CC49004EF55C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9A31E03CC49004EF55C /* LoginViewController.swift */; };
+		F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9A71E03CD54004EF55C /* UIColor+Init.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		F230D9931E03C1B1004EF55C /* FireChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F230D9971E03C1B1004EF55C /* FireChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChatTests.swift; sourceTree = "<group>"; };
 		F230D9991E03C1B1004EF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F230D9A31E03CC49004EF55C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F230D9A71E03CD54004EF55C /* UIColor+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 		F230D97E1E03C1B1004EF55C /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				F230D9A61E03CD3A004EF55C /* Extensions */,
+				F230D9A51E03CD27004EF55C /* Views */,
+				F230D9A21E03CC1F004EF55C /* Controller */,
 				F230D97F1E03C1B1004EF55C /* AppDelegate.swift */,
-				F230D9811E03C1B1004EF55C /* ViewController.swift */,
 				F230D9891E03C1B1004EF55C /* Assets.xcassets */,
 				F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */,
 				F230D98E1E03C1B1004EF55C /* Info.plist */,
@@ -94,6 +100,30 @@
 				F230D9991E03C1B1004EF55C /* Info.plist */,
 			);
 			path = FireChatTests;
+			sourceTree = "<group>";
+		};
+		F230D9A21E03CC1F004EF55C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F230D9A31E03CC49004EF55C /* LoginViewController.swift */,
+				F230D9811E03C1B1004EF55C /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F230D9A51E03CD27004EF55C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F230D9A61E03CD3A004EF55C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F230D9A71E03CD54004EF55C /* UIColor+Init.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F230D9A41E03CC49004EF55C /* LoginViewController.swift in Sources */,
 				F230D9821E03C1B1004EF55C /* ViewController.swift in Sources */,
 				F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */,
+				F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */,
 				F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
