@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D97F1E03C1B1004EF55C /* AppDelegate.swift */; };
+		F230D9821E03C1B1004EF55C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9811E03C1B1004EF55C /* ViewController.swift */; };
+		F230D9851E03C1B1004EF55C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F230D9831E03C1B1004EF55C /* Main.storyboard */; };
+		F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F230D9861E03C1B1004EF55C /* FireChat.xcdatamodeld */; };
+		F230D98A1E03C1B1004EF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F230D9891E03C1B1004EF55C /* Assets.xcassets */; };
+		F230D98D1E03C1B1004EF55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */; };
+		F230D9981E03C1B1004EF55C /* FireChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9971E03C1B1004EF55C /* FireChatTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F230D9941E03C1B1004EF55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F230D9741E03C1B1004EF55C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F230D97B1E03C1B1004EF55C;
+			remoteInfo = FireChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F230D97C1E03C1B1004EF55C /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F230D97F1E03C1B1004EF55C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F230D9811E03C1B1004EF55C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F230D9841E03C1B1004EF55C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F230D9871E03C1B1004EF55C /* FireChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FireChat.xcdatamodel; sourceTree = "<group>"; };
+		F230D9891E03C1B1004EF55C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F230D98C1E03C1B1004EF55C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F230D98E1E03C1B1004EF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F230D9931E03C1B1004EF55C /* FireChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F230D9971E03C1B1004EF55C /* FireChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChatTests.swift; sourceTree = "<group>"; };
+		F230D9991E03C1B1004EF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F230D9791E03C1B1004EF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F230D9901E03C1B1004EF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F230D9731E03C1B1004EF55C = {
+			isa = PBXGroup;
+			children = (
+				F230D97E1E03C1B1004EF55C /* FireChat */,
+				F230D9961E03C1B1004EF55C /* FireChatTests */,
+				F230D97D1E03C1B1004EF55C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F230D97D1E03C1B1004EF55C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F230D97C1E03C1B1004EF55C /* FireChat.app */,
+				F230D9931E03C1B1004EF55C /* FireChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F230D97E1E03C1B1004EF55C /* FireChat */ = {
+			isa = PBXGroup;
+			children = (
+				F230D97F1E03C1B1004EF55C /* AppDelegate.swift */,
+				F230D9811E03C1B1004EF55C /* ViewController.swift */,
+				F230D9831E03C1B1004EF55C /* Main.storyboard */,
+				F230D9891E03C1B1004EF55C /* Assets.xcassets */,
+				F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */,
+				F230D98E1E03C1B1004EF55C /* Info.plist */,
+				F230D9861E03C1B1004EF55C /* FireChat.xcdatamodeld */,
+			);
+			path = FireChat;
+			sourceTree = "<group>";
+		};
+		F230D9961E03C1B1004EF55C /* FireChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				F230D9971E03C1B1004EF55C /* FireChatTests.swift */,
+				F230D9991E03C1B1004EF55C /* Info.plist */,
+			);
+			path = FireChatTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F230D97B1E03C1B1004EF55C /* FireChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F230D99C1E03C1B1004EF55C /* Build configuration list for PBXNativeTarget "FireChat" */;
+			buildPhases = (
+				F230D9781E03C1B1004EF55C /* Sources */,
+				F230D9791E03C1B1004EF55C /* Frameworks */,
+				F230D97A1E03C1B1004EF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FireChat;
+			productName = FireChat;
+			productReference = F230D97C1E03C1B1004EF55C /* FireChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F230D9921E03C1B1004EF55C /* FireChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F230D99F1E03C1B1004EF55C /* Build configuration list for PBXNativeTarget "FireChatTests" */;
+			buildPhases = (
+				F230D98F1E03C1B1004EF55C /* Sources */,
+				F230D9901E03C1B1004EF55C /* Frameworks */,
+				F230D9911E03C1B1004EF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F230D9951E03C1B1004EF55C /* PBXTargetDependency */,
+			);
+			name = FireChatTests;
+			productName = FireChatTests;
+			productReference = F230D9931E03C1B1004EF55C /* FireChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F230D9741E03C1B1004EF55C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = TravelFit;
+				TargetAttributes = {
+					F230D97B1E03C1B1004EF55C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					F230D9921E03C1B1004EF55C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = F230D97B1E03C1B1004EF55C;
+					};
+				};
+			};
+			buildConfigurationList = F230D9771E03C1B1004EF55C /* Build configuration list for PBXProject "FireChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F230D9731E03C1B1004EF55C;
+			productRefGroup = F230D97D1E03C1B1004EF55C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F230D97B1E03C1B1004EF55C /* FireChat */,
+				F230D9921E03C1B1004EF55C /* FireChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F230D97A1E03C1B1004EF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F230D98D1E03C1B1004EF55C /* LaunchScreen.storyboard in Resources */,
+				F230D98A1E03C1B1004EF55C /* Assets.xcassets in Resources */,
+				F230D9851E03C1B1004EF55C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F230D9911E03C1B1004EF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F230D9781E03C1B1004EF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F230D9821E03C1B1004EF55C /* ViewController.swift in Sources */,
+				F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */,
+				F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F230D98F1E03C1B1004EF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F230D9981E03C1B1004EF55C /* FireChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F230D9951E03C1B1004EF55C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F230D97B1E03C1B1004EF55C /* FireChat */;
+			targetProxy = F230D9941E03C1B1004EF55C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F230D9831E03C1B1004EF55C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F230D9841E03C1B1004EF55C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F230D98C1E03C1B1004EF55C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F230D99A1E03C1B1004EF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F230D99B1E03C1B1004EF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F230D99D1E03C1B1004EF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FireChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TravelFit.FireChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F230D99E1E03C1B1004EF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FireChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TravelFit.FireChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F230D9A01E03C1B1004EF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FireChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TravelFit.FireChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FireChat.app/FireChat";
+			};
+			name = Debug;
+		};
+		F230D9A11E03C1B1004EF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FireChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TravelFit.FireChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FireChat.app/FireChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F230D9771E03C1B1004EF55C /* Build configuration list for PBXProject "FireChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F230D99A1E03C1B1004EF55C /* Debug */,
+				F230D99B1E03C1B1004EF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F230D99C1E03C1B1004EF55C /* Build configuration list for PBXNativeTarget "FireChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F230D99D1E03C1B1004EF55C /* Debug */,
+				F230D99E1E03C1B1004EF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F230D99F1E03C1B1004EF55C /* Build configuration list for PBXNativeTarget "FireChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F230D9A01E03C1B1004EF55C /* Debug */,
+				F230D9A11E03C1B1004EF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F230D9861E03C1B1004EF55C /* FireChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F230D9871E03C1B1004EF55C /* FireChat.xcdatamodel */,
+			);
+			currentVersion = F230D9871E03C1B1004EF55C /* FireChat.xcdatamodel */;
+			path = FireChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F230D9741E03C1B1004EF55C /* Project object */;
+}
