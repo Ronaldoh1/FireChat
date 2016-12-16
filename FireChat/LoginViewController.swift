@@ -19,14 +19,36 @@ class LoginViewController: UIViewController {
         return view
     }()
 
+    let loginButton: UIButton = {
+        let button = UIButton(type: .System)
+        button.backgroundColor = UIColor(r: 80, g: 101, b: 161, alpha: 1)
+        button.setTitle("Register", forState: .Normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151, alpha: 1)
 
         view.addSubview(inputsContainerView)
+        view.addSubview(loginButton)
 
         setupInputsContainer()
+        setupLoginRegisterButton()
+    }
+
+    func setupLoginRegisterButton() {
+
+        // need x, y, width and height
+        loginButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        loginButton.topAnchor.constraintEqualToAnchor(inputsContainerView.bottomAnchor, constant: 12).active = true
+        //width 
+        loginButton.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
+        //height
+        loginButton.heightAnchor.constraintEqualToConstant(50).active = true
     }
 
     func setupInputsContainer() {
@@ -45,5 +67,5 @@ class LoginViewController: UIViewController {
         inputsContainerView.heightAnchor.constraintEqualToConstant(150).active = true
     }
 
-    
+
 }
