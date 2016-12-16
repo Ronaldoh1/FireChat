@@ -65,6 +65,14 @@ class LoginViewController: UIViewController {
         return textField
     }()
 
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "gameofthrones_splash")
+        imageView.contentMode = .ScaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
 
 
     override func viewDidLoad() {
@@ -75,16 +83,34 @@ class LoginViewController: UIViewController {
         view.addSubview(inputsContainerView)
         view.addSubview(loginButton)
 
-        //add input fields to container view 
+        //add input fields to container view
         inputsContainerView.addSubview(nameTextField)
         inputsContainerView.addSubview(nameSeparator)
         inputsContainerView.addSubview(emailAddressTextField)
         inputsContainerView.addSubview(emailSeparator)
         inputsContainerView.addSubview(passwordTextField)
 
+        // add logo/profile image view
+        view.addSubview(profileImageView)
+
 
         setupInputsContainer()
         setupLoginRegisterButton()
+        setupProfileImageView()
+    }
+
+    func setupProfileImageView() {
+
+        // x value
+        profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        // y value
+        profileImageView.bottomAnchor.constraintEqualToAnchor(inputsContainerView.topAnchor, constant: -12).active = true
+
+        //width
+        profileImageView.widthAnchor.constraintEqualToConstant(150).active = true
+        // height
+        profileImageView.heightAnchor.constraintEqualToConstant(150).active = true
+
     }
 
     func setupLoginRegisterButton() {
@@ -92,7 +118,7 @@ class LoginViewController: UIViewController {
         loginButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         loginButton.topAnchor.constraintEqualToAnchor(inputsContainerView.bottomAnchor, constant: 12).active = true
 
-        //width 
+        //width
         loginButton.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
         //height
         loginButton.heightAnchor.constraintEqualToConstant(50).active = true
@@ -131,7 +157,7 @@ class LoginViewController: UIViewController {
         // Height
         nameTextField.heightAnchor.constraintEqualToAnchor(inputsContainerView.heightAnchor, multiplier: 1/3).active = true
 
-        //NameSeparator 
+        //NameSeparator
 
         //center the x value
         nameSeparator.leftAnchor.constraintEqualToAnchor(inputsContainerView.leftAnchor).active = true
@@ -180,14 +206,14 @@ class LoginViewController: UIViewController {
 
         // y value
         passwordTextField.topAnchor.constraintEqualToAnchor(emailAddressTextField.bottomAnchor).active = true
-
+        
         //Width
         passwordTextField.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
-
+        
         // Height
         passwordTextField.heightAnchor.constraintEqualToAnchor(inputsContainerView.heightAnchor, multiplier: 1/3).active = true
-
+        
     }
-
-
+    
+    
 }
