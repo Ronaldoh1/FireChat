@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -19,13 +20,14 @@ class LoginViewController: UIViewController {
         return view
     }()
 
-    let loginButton: UIButton = {
+   lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .System)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161, alpha: 1)
         button.setTitle("Register", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
+        button.addTarget(self, action: #selector(handleRegister), forControlEvents: .TouchUpInside)
         return button
     }()
 
@@ -61,6 +63,7 @@ class LoginViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Password"
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.secureTextEntry = true
 
         return textField
     }()
@@ -73,15 +76,13 @@ class LoginViewController: UIViewController {
         return imageView
     }()
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151, alpha: 1)
 
         view.addSubview(inputsContainerView)
-        view.addSubview(loginButton)
+        view.addSubview(loginRegisterButton)
 
         //add input fields to container view
         inputsContainerView.addSubview(nameTextField)
@@ -99,6 +100,37 @@ class LoginViewController: UIViewController {
         setupProfileImageView()
     }
 
+    func handleRegister() {
+
+        guard let name = nameTextField.text, let email = emailAddressTextField.text, let password = passwordTextField.text else {
+            print("Form is not valid")
+            return
+        }
+
+        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user: FIRUser?, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+             //if we reached this point then, we have successfully logged in
+
+            guard let uid = user?.uid else {
+                return
+            }
+            //save user to the database 
+            let ref = FIRDatabase.database().referenceFromURL("https://firechat-9a8c7.firebaseio.com/")
+            let usersReference = ref.child("users").child(uid)
+            let values = ["name" : name, "email" : email]
+            usersReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+
+                print("successfully have saved the user to firebase db")
+            })
+        })
+    }
     func setupProfileImageView() {
 
         // x value
@@ -115,13 +147,13 @@ class LoginViewController: UIViewController {
 
     func setupLoginRegisterButton() {
         // need x, y, width and height
-        loginButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        loginButton.topAnchor.constraintEqualToAnchor(inputsContainerView.bottomAnchor, constant: 12).active = true
+        loginRegisterButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        loginRegisterButton.topAnchor.constraintEqualToAnchor(inputsContainerView.bottomAnchor, constant: 12).active = true
 
         //width
-        loginButton.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
+        loginRegisterButton.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
         //height
-        loginButton.heightAnchor.constraintEqualToConstant(50).active = true
+        loginRegisterButton.heightAnchor.constraintEqualToConstant(50).active = true
     }
 
     func setupInputsContainer() {

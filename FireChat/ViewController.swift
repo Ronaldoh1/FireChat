@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UITableViewController {
 
@@ -15,6 +16,7 @@ class ViewController: UITableViewController {
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "logout", style: .Plain, target: self, action: #selector(handleLogout))
 
+        
     }
 
     func handleLogout() {
