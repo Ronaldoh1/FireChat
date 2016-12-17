@@ -16,10 +16,20 @@ class ViewController: UITableViewController {
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "logout", style: .Plain, target: self, action: #selector(handleLogout))
 
-        
+        //user is not logged in
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            performSelector(#selector(handleLogout), withObject: nil, afterDelay: 0)
+        }
+
     }
 
     func handleLogout() {
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+
         let loginController = LoginViewController()
 
         presentViewController(loginController, animated: true, completion: nil)
@@ -27,7 +37,7 @@ class ViewController: UITableViewController {
     }
 
 
-    // MARK: Status bar 
+    // MARK: Status bar
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
