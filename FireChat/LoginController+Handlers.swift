@@ -1,3 +1,4 @@
+
 //
 //  LoginController+Handlers.swift
 //  FireChat
@@ -9,7 +10,9 @@
 import UIKit
 import Firebase
 
-extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+
 
     func handleSeletedProfileImageView() {
 
@@ -45,7 +48,12 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
             let imageName = NSUUID().UUIDString
 
             let storageReferance = FIRStorage.storage().reference().child("profile_images").child("\(imageName).png")
-            guard let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) else {
+
+            guard let profileImage = self.profileImageView.image else {
+                return
+            }
+
+            guard let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) else {
                 return
             }
 
@@ -76,10 +84,15 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
                 return
             }
 
+            let user = User()
+            user.setValuesForKeysWithDictionary(values)
+            self.messagesController?.setupNavBarWithUser(user)
+            
             print("successfully have saved the user to firebase db")
             self.dismissViewControllerAnimated(true, completion: nil)
         })
     }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("canceled")
         dismissViewControllerAnimated(true, completion: nil)
@@ -98,6 +111,7 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
         if let selectedImage = selectedImage {
             profileImageView.image = selectedImage
         }
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

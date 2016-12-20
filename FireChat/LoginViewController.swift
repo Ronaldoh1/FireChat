@@ -104,6 +104,8 @@ class LoginViewController: UIViewController {
     var emailTextFieldHeightAnchor: NSLayoutConstraint?
     var passwordFieldHeightAnchor: NSLayoutConstraint?
 
+    var messagesController: MessagaesViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
