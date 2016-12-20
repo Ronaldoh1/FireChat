@@ -32,15 +32,15 @@ class NewMessageViewController: UITableViewController {
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.users.append(user)
 
-                //got update the tableView in the main thread. 
+                //got update the tableView in the main thread.
 
-                dispatch_async(dispatch_get_main_queue(), { 
+                dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
 
             }
 
-        }, withCancelBlock: nil)
+            }, withCancelBlock: nil)
     }
 
     func handleCancel () {
@@ -59,15 +59,25 @@ class NewMessageViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath)
+        let cell  = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! UserCell
 
         let user = users[indexPath.row]
-        
+        if let profileImageURL = user.profileImageURL {
+
+            cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageURL)
+
+        }
         cell.textLabel?.text  = user.name
         cell.detailTextLabel?.text = user.email
 
         return cell
     }
-
-
+    
+    
+    //MARK: TableView Delegate 
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 72
+    }
+    
 }

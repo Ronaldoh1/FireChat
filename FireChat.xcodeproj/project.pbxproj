@@ -17,6 +17,7 @@
 		F230D9A41E03CC49004EF55C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9A31E03CC49004EF55C /* LoginViewController.swift */; };
 		F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9A71E03CD54004EF55C /* UIColor+Init.swift */; };
 		F230D9AA1E0450A9004EF55C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F230D9A91E0450A9004EF55C /* GoogleService-Info.plist */; };
+		F27C8AC71E09C8C40060ACC5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C8AC61E09C8C40060ACC5 /* Extensions.swift */; };
 		F2B481761E07CE6800C30205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B481751E07CE6800C30205 /* User.swift */; };
 		F2B481781E07D0E300C30205 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B481771E07D0E300C30205 /* UserCell.swift */; };
 		F2B4817A1E086F1900C30205 /* LoginController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B481791E086F1800C30205 /* LoginController+Handlers.swift */; };
@@ -50,6 +51,7 @@
 		F230D9A31E03CC49004EF55C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F230D9A71E03CD54004EF55C /* UIColor+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
 		F230D9A91E0450A9004EF55C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F27C8AC61E09C8C40060ACC5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2B481751E07CE6800C30205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2B481771E07D0E300C30205 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F2B481791E086F1800C30205 /* LoginController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+Handlers.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		F230D97E1E03C1B1004EF55C /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				F27C8AC51E09C8B40060ACC5 /* Helpers */,
 				F2B481721E07CE3300C30205 /* Models */,
 				F230D9A61E03CD3A004EF55C /* Extensions */,
 				F230D9A51E03CD27004EF55C /* Views */,
@@ -163,6 +166,14 @@
 				F230D9A71E03CD54004EF55C /* UIColor+Init.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		F27C8AC51E09C8B40060ACC5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F27C8AC61E09C8C40060ACC5 /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		F2B481721E07CE3300C30205 /* Models */ = {
@@ -330,6 +341,7 @@
 				F230D9A41E03CC49004EF55C /* LoginViewController.swift in Sources */,
 				F230D9821E03C1B1004EF55C /* MessagaesViewController.swift in Sources */,
 				F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */,
+				F27C8AC71E09C8C40060ACC5 /* Extensions.swift in Sources */,
 				F2EC19AA1E05187C0023DFD5 /* NewMessageViewController.swift in Sources */,
 				F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */,
 				F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */,
