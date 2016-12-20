@@ -63,11 +63,14 @@ class LoginViewController: UIViewController {
         return textField
     }()
 
-    let profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "gameofthrones_splash")
         imageView.contentMode = .ScaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSeletedProfileImageView))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.userInteractionEnabled = true
 
         return imageView
     }()
@@ -172,38 +175,7 @@ class LoginViewController: UIViewController {
 
     }
 
-    func handleRegister() {
-
-        guard let name = nameTextField.text, let email = emailAddressTextField.text, let password = passwordTextField.text else {
-            print("Form is not valid")
-            return
-        }
-
-        FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user: FIRUser?, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            //if we reached this point then, we have successfully logged in
-
-            guard let uid = user?.uid else {
-                return
-            }
-            //save user to the database
-            let ref = FIRDatabase.database().referenceFromURL("https://firechat-9a8c7.firebaseio.com/")
-            let usersReference = ref.child("users").child(uid)
-            let values = ["name" : name, "email" : email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-
-                print("successfully have saved the user to firebase db")
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-        })
-    }
+    
 
     func setupLoginRegisterSegmentedControl() {
         // x value
