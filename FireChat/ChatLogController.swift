@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
-class ChatLogController: UICollectionViewController {
+class ChatLogController: UICollectionViewController, UITextFieldDelegate {
+
+    lazy var inputTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter Message..."
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
+        return textField
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +51,7 @@ class ChatLogController: UICollectionViewController {
         let sendButton = UIButton(type: .System)
         sendButton.setTitle("Send", forState: .Normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
+        sendButton.addTarget(self, action: #selector(sendMessage), forControlEvents: .TouchUpInside)
 
         containverView.addSubview(sendButton)
 
@@ -53,9 +64,6 @@ class ChatLogController: UICollectionViewController {
 
         //input textfield 
 
-        let inputTextField = UITextField()
-        inputTextField.placeholder = "Enter Message"
-        inputTextField.translatesAutoresizingMaskIntoConstraints = false
 
         containverView.addSubview(inputTextField)
 
@@ -65,6 +73,42 @@ class ChatLogController: UICollectionViewController {
         inputTextField.centerYAnchor.constraintEqualToAnchor(containverView.centerYAnchor).active = true
         inputTextField.rightAnchor.constraintEqualToAnchor(sendButton.leftAnchor).active = true
         inputTextField.heightAnchor.constraintEqualToAnchor(containverView.heightAnchor).active = true
+
+        let separtorLine = UIView()
+        separtorLine.backgroundColor = UIColor(r: 220, g: 220 , b: 220, alpha: 1)
+        separtorLine.translatesAutoresizingMaskIntoConstraints = false
+        containverView.addSubview(separtorLine)
+
+        //x,y,w,h
+
+        separtorLine.leftAnchor.constraintEqualToAnchor(containverView.leftAnchor).active = true
+        separtorLine.topAnchor.constraintEqualToAnchor(containverView.topAnchor).active = true
+        separtorLine.rightAnchor.constraintEqualToAnchor(containverView.rightAnchor).active = true
+        separtorLine.heightAnchor.constraintEqualToConstant(1).active = true
+
     }
 
+    //MARK: Send message to Firebase 
+
+    func sendMessage() {
+
+        let ref = FIRDatabase.database().reference().child("message")
+        let childRef = ref.childByAutoId()
+
+        guard let textFieldText = inputTextField.text else {
+            return
+        }
+
+        let values = ["text": textFieldText]
+
+        childRef.updateChildValues(values)
+
+    }
+
+    //MARK: UITextFieldDelegate
+    func textfieldShouldReturn(textField: UITextField) -> Bool {
+        sendMessage()
+        return true
+    }
 }
+
