@@ -19,11 +19,16 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
         return textField
     }()
 
+    var user: User? {
+        didSet{
+            navigationItem.title  = user?.name
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Chat Log"
         setupInputComponents()
 
         collectionView?.backgroundColor = UIColor.whiteColor()
@@ -99,7 +104,16 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
             return
         }
 
-        let values = ["text": textFieldText]
+        guard let toID = user?.id else {
+            return
+        }
+
+        guard let fromID = FIRAuth.auth()?.currentUser?.uid else {
+            return
+        }
+
+        let timeStamp: NSNumber = NSDate().timeIntervalSince1970
+        let values = ["text" : textFieldText, "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
 
         childRef.updateChildValues(values)
 

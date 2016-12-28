@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class MessagaesViewController: UITableViewController {
+class MessagesViewController: UITableViewController {
+
+    var messages = [Message]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +19,8 @@ class MessagaesViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "logout", style: .Plain, target: self, action: #selector(handleLogout))
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "new_message_icon"), style: .Plain, target: self, action: #selector(handleNewMessage))
+
+        observeMessages()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -25,9 +29,32 @@ class MessagaesViewController: UITableViewController {
         checkIfUserIsLoggedIn()
     }
 
+
+    func observeMessages() {
+        let ref = FIRDatabase.database().reference().child("message")
+        ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+
+            if let dictionary = snapshot.value as? [String : AnyObject] {
+                let message = Message()
+                message.setValuesForKeysWithDictionary(dictionary)
+                print(message.fromID)
+                self.messages.append(message)
+
+                // you want to update the tableView on the main thread.
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+
+            }
+
+            }, withCancelBlock: nil)
+    }
+
     func handleNewMessage() {
 
         let newMessageController = NewMessageViewController()
+        newMessageController.messagesController = self
 
         let navigationController = UINavigationController(rootViewController: newMessageController)
         presentViewController(navigationController, animated: true, completion: nil)
@@ -119,7 +146,7 @@ class MessagaesViewController: UITableViewController {
         containerView.centerYAnchor.constraintEqualToAnchor(titleView.centerYAnchor).active = true
 
         self.navigationItem.titleView = titleView
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(showChatController))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(showChatControllerForUser))
         titleView.addGestureRecognizer(gesture)
     }
     
@@ -131,10 +158,24 @@ class MessagaesViewController: UITableViewController {
 
     // MARK: Helper 
 
-    func showChatController() {
+    func showChatControllerForUser(user: User) {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let chatLogController = ChatLogController(collectionViewLayout: collectionViewLayout)
+        chatLogController.user = user
         navigationController?.pushViewController(chatLogController, animated: true)
+    }
+
+    //MARK: DataSource
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellID")
+        let message = messages[indexPath.row]
+        cell.textLabel?.text = message.text
+        return cell
     }
 }
 

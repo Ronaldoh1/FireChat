@@ -28,7 +28,7 @@ class NewMessageViewController: UITableViewController {
 
             if let dictionary = snapshot.value as? [String : AnyObject] {
                 let user = User()
-
+                user.id = snapshot.key
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.users.append(user)
 
@@ -75,9 +75,21 @@ class NewMessageViewController: UITableViewController {
     
     
     //MARK: TableView Delegate 
+
+    var messagesController: MessagesViewController?
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 72
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        dismissViewControllerAnimated(true){
+
+        let user = self.users[indexPath.row]
+
+         self.messagesController?.showChatControllerForUser(user)
+        }
+
     }
     
 }

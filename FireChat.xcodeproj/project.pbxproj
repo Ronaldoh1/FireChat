@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		14C2C5EFE206EC791AB276DB /* Pods_FireChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4980E056B2529858A7568581 /* Pods_FireChat.framework */; };
 		F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D97F1E03C1B1004EF55C /* AppDelegate.swift */; };
-		F230D9821E03C1B1004EF55C /* MessagaesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9811E03C1B1004EF55C /* MessagaesViewController.swift */; };
+		F230D9821E03C1B1004EF55C /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9811E03C1B1004EF55C /* MessagesViewController.swift */; };
 		F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F230D9861E03C1B1004EF55C /* FireChat.xcdatamodeld */; };
 		F230D98A1E03C1B1004EF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F230D9891E03C1B1004EF55C /* Assets.xcassets */; };
 		F230D98D1E03C1B1004EF55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F230D98B1E03C1B1004EF55C /* LaunchScreen.storyboard */; };
@@ -18,6 +18,7 @@
 		F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230D9A71E03CD54004EF55C /* UIColor+Init.swift */; };
 		F230D9AA1E0450A9004EF55C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F230D9A91E0450A9004EF55C /* GoogleService-Info.plist */; };
 		F2333A501E13E74B00462838 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2333A4F1E13E74B00462838 /* ChatLogController.swift */; };
+		F24801021E14371500C1A4E0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24801011E14371500C1A4E0 /* Message.swift */; };
 		F27C8AC71E09C8C40060ACC5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C8AC61E09C8C40060ACC5 /* Extensions.swift */; };
 		F2B481761E07CE6800C30205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B481751E07CE6800C30205 /* User.swift */; };
 		F2B481781E07D0E300C30205 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B481771E07D0E300C30205 /* UserCell.swift */; };
@@ -41,7 +42,7 @@
 		E0FAE2884EE3169F25A22878 /* Pods-FireChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireChat/Pods-FireChat.release.xcconfig"; sourceTree = "<group>"; };
 		F230D97C1E03C1B1004EF55C /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F230D97F1E03C1B1004EF55C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F230D9811E03C1B1004EF55C /* MessagaesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagaesViewController.swift; sourceTree = "<group>"; };
+		F230D9811E03C1B1004EF55C /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F230D9871E03C1B1004EF55C /* FireChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FireChat.xcdatamodel; sourceTree = "<group>"; };
 		F230D9891E03C1B1004EF55C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F230D98C1E03C1B1004EF55C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		F230D9A71E03CD54004EF55C /* UIColor+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
 		F230D9A91E0450A9004EF55C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2333A4F1E13E74B00462838 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		F24801011E14371500C1A4E0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F27C8AC61E09C8C40060ACC5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2B481751E07CE6800C30205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F2B481771E07D0E300C30205 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F230D9A31E03CC49004EF55C /* LoginViewController.swift */,
-				F230D9811E03C1B1004EF55C /* MessagaesViewController.swift */,
+				F230D9811E03C1B1004EF55C /* MessagesViewController.swift */,
 				F2EC19A91E05187C0023DFD5 /* NewMessageViewController.swift */,
 				F2B481791E086F1800C30205 /* LoginController+Handlers.swift */,
 				F2333A4F1E13E74B00462838 /* ChatLogController.swift */,
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B481751E07CE6800C30205 /* User.swift */,
+				F24801011E14371500C1A4E0 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -342,12 +345,13 @@
 				F2B4817A1E086F1900C30205 /* LoginController+Handlers.swift in Sources */,
 				F2B481781E07D0E300C30205 /* UserCell.swift in Sources */,
 				F230D9A41E03CC49004EF55C /* LoginViewController.swift in Sources */,
-				F230D9821E03C1B1004EF55C /* MessagaesViewController.swift in Sources */,
+				F230D9821E03C1B1004EF55C /* MessagesViewController.swift in Sources */,
 				F230D9881E03C1B1004EF55C /* FireChat.xcdatamodeld in Sources */,
 				F2333A501E13E74B00462838 /* ChatLogController.swift in Sources */,
 				F27C8AC71E09C8C40060ACC5 /* Extensions.swift in Sources */,
 				F2EC19AA1E05187C0023DFD5 /* NewMessageViewController.swift in Sources */,
 				F230D9A81E03CD54004EF55C /* UIColor+Init.swift in Sources */,
+				F24801021E14371500C1A4E0 /* Message.swift in Sources */,
 				F230D9801E03C1B1004EF55C /* AppDelegate.swift in Sources */,
 				F2B481761E07CE6800C30205 /* User.swift in Sources */,
 			);
