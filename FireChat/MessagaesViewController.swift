@@ -119,7 +119,8 @@ class MessagaesViewController: UITableViewController {
         containerView.centerYAnchor.constraintEqualToAnchor(titleView.centerYAnchor).active = true
 
         self.navigationItem.titleView = titleView
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(showChatController))
+        titleView.addGestureRecognizer(gesture)
     }
     
     // MARK: Status bar
@@ -127,6 +128,13 @@ class MessagaesViewController: UITableViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
-    
+
+    // MARK: Helper 
+
+    func showChatController() {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        let chatLogController = ChatLogController(collectionViewLayout: collectionViewLayout)
+        navigationController?.pushViewController(chatLogController, animated: true)
+    }
 }
 
