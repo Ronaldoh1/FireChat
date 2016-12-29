@@ -67,6 +67,7 @@ class NewMessageViewController: UITableViewController {
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageURL)
 
         }
+        
         cell.textLabel?.text  = user.name
         cell.detailTextLabel?.text = user.email
 

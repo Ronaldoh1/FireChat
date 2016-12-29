@@ -12,6 +12,7 @@ import Firebase
 class MessagesViewController: UITableViewController {
 
     var messages = [Message]()
+    let userCellID = "userCellID"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class MessagesViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "new_message_icon"), style: .Plain, target: self, action: #selector(handleNewMessage))
 
         observeMessages()
+
+        tableView.registerClass(UserCell.self, forCellReuseIdentifier:userCellID)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -48,7 +51,7 @@ class MessagesViewController: UITableViewController {
 
             }
 
-            }, withCancelBlock: nil)
+        }, withCancelBlock: nil)
     }
 
     func handleNewMessage() {
@@ -172,10 +175,16 @@ class MessagesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellID")
-        let message = messages[indexPath.row]
-        cell.textLabel?.text = message.text
+
+        let cell = tableView.dequeueReusableCellWithIdentifier(userCellID, forIndexPath: indexPath) as! UserCell
+        cell.message = messages[indexPath.row]
+        
         return cell
+    }
+
+    //MARK: TableViewDelegate
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 72
     }
 }
 

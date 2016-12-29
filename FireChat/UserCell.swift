@@ -7,9 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class UserCell: UITableViewCell {
 
+    var message: Message? {
+        didSet{
+            if let toID = message?.toID {
+                let ref = FIRDatabase.database().reference().child("users").child(toID)
+                ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String : AnyObject] {
+                        self.textLabel?.text = dictionary["name"] as? String
+
+                        if let profileImageURL = dictionary["profileImageURL"] as? String {
+                            self.profileImageView.loadImageUsingCacheWithUrlString(profileImageURL)
+
+                        }
+                    }
+                })
+            }
+            
+            self.detailTextLabel?.text = message?.text
+            if let seconds = message?.timeStamp?.doubleValue {
+                let date = NSDate(timeIntervalSince1970: seconds)
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "hh:mm:ss a"
+                timeLabel.text = dateFormatter.stringFromDate(date)
+            }
+
+
+        }
+    }
 
 
     let profileImageView: UIImageView = {
@@ -20,6 +48,15 @@ class UserCell: UITableViewCell {
         imageView.layer.masksToBounds = true
         
         return imageView
+    }()
+
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "HH:MM"
+        label.font = UIFont.systemFontOfSize(12)
+        label.textColor = UIColor.darkGrayColor()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override func layoutSubviews() {
@@ -33,6 +70,7 @@ class UserCell: UITableViewCell {
         super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
 
         addSubview(profileImageView)
+        addSubview(timeLabel)
 
         //add iOS9 constraints 
 
@@ -42,6 +80,13 @@ class UserCell: UITableViewCell {
         profileImageView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
         profileImageView.widthAnchor.constraintEqualToConstant(48).active = true
         profileImageView.heightAnchor.constraintEqualToConstant(48).active = true
+
+        //need x,y, height and width
+
+        timeLabel.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
+        timeLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 18).active = true
+        timeLabel.widthAnchor.constraintEqualToConstant(100)
+        timeLabel.heightAnchor.constraintEqualToAnchor(textLabel?.heightAnchor).active = true
 
     }
     

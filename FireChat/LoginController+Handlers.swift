@@ -76,7 +76,7 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
 
     private func registerUserIntoDatabase(with uid: String, values: [String : AnyObject]) {
-        let ref = FIRDatabase.database().referenceFromURL("https://firechat-9a8c7.firebaseio.com/")
+        let ref = FIRDatabase.database().reference()
         let usersReference = ref.child("users").child(uid)
         usersReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if error != nil {
@@ -87,14 +87,12 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
             let user = User()
             user.setValuesForKeysWithDictionary(values)
             self.messagesController?.setupNavBarWithUser(user)
-            
-            print("successfully have saved the user to firebase db")
+
             self.dismissViewControllerAnimated(true, completion: nil)
         })
     }
-    
+
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        print("canceled")
         dismissViewControllerAnimated(true, completion: nil)
     }
 
