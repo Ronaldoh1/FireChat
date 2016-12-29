@@ -13,6 +13,7 @@ class MessagesViewController: UITableViewController {
 
     var messages = [Message]()
     let userCellID = "userCellID"
+    var messageDictionary = [String: Message]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class MessagesViewController: UITableViewController {
         checkIfUserIsLoggedIn()
     }
 
+    // use a dictionary to store the value of user and messages.
+    // set the message array to messageDictionary.values 
+    // soert the message array in decending order
 
     func observeMessages() {
         let ref = FIRDatabase.database().reference().child("message")
@@ -41,7 +45,14 @@ class MessagesViewController: UITableViewController {
                 let message = Message()
                 message.setValuesForKeysWithDictionary(dictionary)
                 print(message.fromID)
-                self.messages.append(message)
+
+                if let toID = message.toID {
+                    self.messageDictionary[toID] = message
+                    self.messages = Array(self.messageDictionary.values)
+                    self.messages.sortInPlace({ (m1, m2) -> Bool in
+                        return m1.timeStamp?.intValue > m2.timeStamp?.intValue
+                    })
+                }
 
                 // you want to update the tableView on the main thread.
 
