@@ -22,7 +22,8 @@ class MessagesViewController: UITableViewController {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "new_message_icon"), style: .Plain, target: self, action: #selector(handleNewMessage))
 
-        observeMessages()
+        //observeMessages()
+        observeUserMessagesNode()
 
         tableView.registerClass(UserCell.self, forCellReuseIdentifier:userCellID)
     }
@@ -33,37 +34,45 @@ class MessagesViewController: UITableViewController {
         checkIfUserIsLoggedIn()
     }
 
+    func observeUserMessagesNode() {
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+
+        let ref = FIRDatabase.database().reference().child("user-messages").child(uid)
+        ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+
+            let messageID = snapshot.key
+            let messageReference = FIRDatabase.database().reference().child("messages").child(messageID)
+            messageReference.observeEventType(.Value, withBlock: { (snapshot) in
+
+                if let dictionary = snapshot.value as? [String : AnyObject] {
+                    let message = Message()
+                    message.setValuesForKeysWithDictionary(dictionary)
+                    print(message.fromID)
+
+                    if let toID = message.toID {
+                        self.messageDictionary[toID] = message
+                        self.messages = Array(self.messageDictionary.values)
+                        self.messages.sortInPlace({ (m1, m2) -> Bool in
+                            return m1.timeStamp?.intValue > m2.timeStamp?.intValue
+                        })
+                    }
+
+                    // you want to update the tableView on the main thread.
+
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                }
+
+                }, withCancelBlock: nil)
+
+            }, withCancelBlock: nil)
+    }
+
     // use a dictionary to store the value of user and messages.
     // set the message array to messageDictionary.values 
     // soert the message array in decending order
 
-    func observeMessages() {
-        let ref = FIRDatabase.database().reference().child("message")
-        ref.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-
-            if let dictionary = snapshot.value as? [String : AnyObject] {
-                let message = Message()
-                message.setValuesForKeysWithDictionary(dictionary)
-                print(message.fromID)
-
-                if let toID = message.toID {
-                    self.messageDictionary[toID] = message
-                    self.messages = Array(self.messageDictionary.values)
-                    self.messages.sortInPlace({ (m1, m2) -> Bool in
-                        return m1.timeStamp?.intValue > m2.timeStamp?.intValue
-                    })
-                }
-
-                // you want to update the tableView on the main thread.
-
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
-
-            }
-
-        }, withCancelBlock: nil)
-    }
 
     func handleNewMessage() {
 

@@ -115,7 +115,16 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
         let timeStamp: NSNumber = NSDate().timeIntervalSince1970
         let values = ["text" : textFieldText, "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
 
-        childRef.updateChildValues(values)
+       // childRef.updateChildValues(values)
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil {
+                print(error)
+            }
+
+            let userMessageReference = FIRDatabase.database().reference().child("user-message").child(fromID)
+            let messageID = childRef.key
+            userMessageReference.updateChildValues([messageID: 1])
+        }
 
     }
 
